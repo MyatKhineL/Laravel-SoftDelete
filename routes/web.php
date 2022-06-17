@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FruitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/fruit',[FruitController::class,'index']);
+Route::delete('/fruit/destroy/{id}',[FruitController::class,'destroy'])->name('fruit.destroy');
+Route::post('/fruit/restore/{id}',[FruitController::class,'restore'])->name('fruit.restore');
+Route::get('archive',[FruitController::class,'archive']);
+Route::post('/fruit/perdelete/{id}',[FruitController::class,'perdelete'])->name('fruit.perdelete');
